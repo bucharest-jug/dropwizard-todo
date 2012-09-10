@@ -1,3 +1,5 @@
+*.swp
+*.iml
 *.class
 
 # Package Files #
