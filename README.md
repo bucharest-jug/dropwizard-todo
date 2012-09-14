@@ -21,8 +21,9 @@ The service will be mounted on $BASE_URL. It will expose a simple *todos* resour
 * DELETE  /todos/{id}  - will delete the todo specified by {id}
 
 A **todo** resource has the following information:
-  - id : assigned by server on creation
-  - creation date: assigned on cration
+  - id : assigned by server on creation (Read Only)
+  - creation date: assigned on cration (Read Only)
+  - done: if it's done or not
   - description: a text description of what need to be done
   - responsible: email/name of person assigned to do this todo
 
