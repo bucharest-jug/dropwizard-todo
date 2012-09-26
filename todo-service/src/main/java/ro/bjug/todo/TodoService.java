@@ -1,10 +1,12 @@
 package ro.bjug.todo;
 
 import com.yammer.dropwizard.Service;
+import com.yammer.dropwizard.bundles.DBIExceptionsBundle;
 import com.yammer.dropwizard.config.Environment;
 import com.yammer.dropwizard.db.Database;
 import com.yammer.dropwizard.db.DatabaseFactory;
 import com.yammer.dropwizard.views.ViewBundle;
+import ro.bjug.todo.dao.TodoDao;
 import ro.bjug.todo.resources.TodoResource;
 
 public class TodoService extends Service<TodoServiceConfiguration> {
@@ -15,6 +17,7 @@ public class TodoService extends Service<TodoServiceConfiguration> {
 
   public TodoService() {
     addBundle(new ViewBundle());
+    addBundle(new DBIExceptionsBundle());
   }
 
   @Override
@@ -24,6 +27,9 @@ public class TodoService extends Service<TodoServiceConfiguration> {
     final DatabaseFactory factory = new DatabaseFactory(environment);
     Database database = factory.build(configuration.getDatabase(), "todo");
 
-    environment.addResource(new TodoResource(database));
+    final TodoDao dao = database.onDemand(TodoDao.class);
+    dao.createTableIfNotExists();
+
+    environment.addResource(new TodoResource(dao));
   }
 }
