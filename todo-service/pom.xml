@@ -83,15 +83,41 @@
                         <configuration>
                             <transformers>
                                 <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <mainClass>ro.bjug.todo.TodoService</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- run js tests with: $ mvn clean process-resources jasmine:test -->
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.2.0.0</version>
+                <!-- avoid double phase executions https://github.com/searls/jasmine-maven-plugin/pull/54 -->
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>FIREFOX_3</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <browserVersion>FIREFOX_3</browserVersion>
+                    <junitXmlReportFileName>TEST-FIREFOX_3-jasmine.xml</junitXmlReportFileName>
+                    <jsSrcDir>${project.basedir}/src/main/resources/assets</jsSrcDir>
+                    <jsTestSrcDir>${project.basedir}/src/test/javascript/specs</jsTestSrcDir>
+                    <specRunnerTemplate>REQUIRE_JS</specRunnerTemplate>
+                    <scriptLoaderPath>/assets/js/libs/require.js</scriptLoaderPath>
+                </configuration>
             </plugin>
         </plugins>
     </build>
