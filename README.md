@@ -14,19 +14,21 @@ The service will be mounted on $BASE_URL. It will expose a simple *todos* resour
 
 * GET     /todos - will return the list of todos
 * POST    /todos - will create another todo and return an URL to the new resource
-* DELETE  /todos - will delete all todo's
-* PUT     /todos - will update all todo's                         
-* GET     /todos/{id}  - will get details about a single todo
+
+* GET     /todos/{id}  - will get details about a single todo (including all items)
 * PUT     /todos/{id}  - will update the todo specified by {id}
 * DELETE  /todos/{id}  - will delete the todo specified by {id}
 
-A **todo** resource has the following information:
+A **todo** has the following information:
   - id : assigned by server on creation (Read Only)
-  - creation date: assigned on cration (Read Only)
-  - done: if it's done or not
-  - description: a text description of what need to be done
-  - responsible: email/name of person assigned to do this todo
-
+  - created : assigned on creation (Read Only)
+  - email: owner email address
+  - items: list of items
+  
+A **todo item** has the following information:
+  - title: a text description of what need to be done
+  - created: date time assigned on creation
+  - finished: date time assigned when the item was finished
 
 Links
 -----
