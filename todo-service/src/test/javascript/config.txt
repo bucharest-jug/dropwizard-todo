@@ -4,6 +4,8 @@
         "underscore":"js/libs/underscore-min",
         "backbone":"js/libs/backbone-min",
         "bootstrap":"js/libs/bootstrap.min",
+        "model":"js/model",
+        "view":"js/view"
     },
 
     shim:{
