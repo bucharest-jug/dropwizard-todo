@@ -10,7 +10,8 @@ require.config({
         "jquery":"libs/jquery-1.8.2.min",
         "underscore":"libs/underscore-min",
         "backbone":"libs/backbone-min",
-        "bootstrap":"libs/bootstrap.min"
+        "bootstrap":"libs/bootstrap.min",
+        "text":"libs/text"
     },
     // js libs not friendly with AMD specification
     shim:{

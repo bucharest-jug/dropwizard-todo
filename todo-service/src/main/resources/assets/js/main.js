@@ -1,6 +1,6 @@
 require([
-    'underscore', 'jquery', 'backbone'
-], function (_, $, Backbone) {
+    'underscore', 'jquery', 'backbone', "model/todo", "view/todo-list"
+], function (_, $, Backbone, Todo, TodoListView) {
 
     // add close method to all views for clean-up
     Backbone.View.prototype.close = function () {
@@ -29,7 +29,8 @@ require([
 
     var AppRouter = Backbone.Router.extend({
         routes:{
-            '*path':'defaultRoute'
+            "":"todos",
+            "*path":"defaultRoute"
         },
         showView:function (selector, view) {
             // close the previous view - does binding clean-up and avoids memory leaks
@@ -40,6 +41,17 @@ require([
             return view
         },
         defaultRoute:function () {
+            this.todos()
+        },
+        todos:function () {
+            var that = this,
+                todos = new Todo.Collection
+
+            todos.fetch({success:function () {
+                that.showView("#container", new TodoListView({
+                    collection:todos
+                }))
+            }})
         }
     });
 

@@ -5,7 +5,9 @@
         "backbone":"js/libs/backbone-min",
         "bootstrap":"js/libs/bootstrap.min",
         "model":"js/model",
-        "view":"js/view"
+        "view":"js/view",
+        "text":"js/libs/text",
+        "tpl":"js/tpl"
     },
 
     shim:{
