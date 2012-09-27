@@ -1,0 +1,17 @@
+    paths:{
+        // libraries
+        "jquery":"js/libs/jquery-1.8.2.min",
+        "underscore":"js/libs/underscore-min",
+        "backbone":"js/libs/backbone-min",
+        "bootstrap":"js/libs/bootstrap.min",
+    },
+
+    shim:{
+        underscore:{
+            exports:"_"
+        },
+        backbone:{
+            deps:[ "underscore", "jquery"],
+            exports:"Backbone"
+        }
+    }

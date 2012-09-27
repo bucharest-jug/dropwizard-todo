@@ -116,7 +116,10 @@
                     <jsSrcDir>${project.basedir}/src/main/resources/assets</jsSrcDir>
                     <jsTestSrcDir>${project.basedir}/src/test/javascript/specs</jsTestSrcDir>
                     <specRunnerTemplate>REQUIRE_JS</specRunnerTemplate>
-                    <scriptLoaderPath>/assets/js/libs/require.js</scriptLoaderPath>
+                    <scriptLoaderPath>/js/libs/require.js</scriptLoaderPath>
+                    <customRunnerConfiguration>
+                        ${project.basedir}/src/test/javascript/config.txt
+                    </customRunnerConfiguration>
                 </configuration>
             </plugin>
         </plugins>
