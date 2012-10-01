@@ -3,7 +3,9 @@ Todo list with Dropwizard
 
 A simple todo list sample application implemented using dropwizad
 as the core framework with a simple UI that consumes the REST API
-based on twitter bootstrap, backbone.js, jquery and jasmine.
+based on twitter bootstrap, backbone.js, jquery, jasmine and require.js.
+
+It uses jasmine-maven-plugin to integrate the UI in the maven build.
 
 **Our focus is on**: project structure, code quality, testing, deployment
 
@@ -30,10 +32,25 @@ A **todo item** has the following information:
   - created: date time assigned on creation
   - finished: date time assigned when the item was finished
 
+
+How to run
+----------
+  - clone: **git@github.com:bucharest-jug/dropwizard-todo.git && cd dropwizard-todo**
+  - build the project with **$ mvn clean install**  
+  - run it: **java -jar todo-service/target/todo-service-1.0.0-SNAPSHOT.jar server todo.sample.yml**
+  - goto the view: http://localhost:8080
+
 Links
 -----
 
 * http://dropwizard.codahale.com/
 * http://twitter.github.com/bootstrap/
 * http://pivotal.github.com/jasmine/ 
+* https://github.com/searls/jasmine-maven-plugin
+* http://requirejs.org/
+
+Pics
+----
+  ![New todo](http://bucharest-jug.github.com/dropwizard-todo/images/todo-new.png)
+  ![Todo List](http://bucharest-jug.github.com/dropwizard-todo/images/todo-index.png)
 
