@@ -1,4 +1,4 @@
-require([
+define([
     'underscore', 'jquery', 'backbone', "model/todo", "view/todo-list"
 ], function (_, $, Backbone, Todo, TodoListView) {
 
@@ -30,6 +30,7 @@ require([
     var AppRouter = Backbone.Router.extend({
         routes:{
             "":"todos",
+            "todos/:id":"showTodo",
             "*path":"defaultRoute"
         },
         showView:function (selector, view) {
@@ -46,15 +47,17 @@ require([
         todos:function () {
             var that = this,
                 todos = new Todo.Collection
-
+            // fetch the collection and update pass it to the view on success
             todos.fetch({success:function () {
                 that.showView("#container", new TodoListView({
                     collection:todos
                 }))
             }})
-        }
-    });
+        },
+        showTodo:function (id) {
 
-    var app = new AppRouter()
-    Backbone.history.start()
+        }
+    })
+
+    return AppRouter
 })

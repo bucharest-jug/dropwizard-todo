@@ -16,7 +16,7 @@ define([
         })
 
         describe('jquery', function () {
-            it('must be version 1.7.2', function () {
+            it('must be version 1.8.2', function () {
                 expect(jQuery.fn.jquery).toEqual('1.8.2')
                 expect(jQuery).toEqual($)
             })

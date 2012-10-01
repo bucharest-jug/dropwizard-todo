@@ -1,19 +1,22 @@
 // set the require.js configuration for your application
 require.config({
-    // initialize the application with the main application file
-    deps:[ "main" ],
-
-    baseUrl:"assets/js",
+    baseUrl:"assets",
 
     paths:{
         // libraries
-        "jquery":"libs/jquery-1.8.2.min",
-        "underscore":"libs/underscore-min",
-        "backbone":"libs/backbone-min",
-        "bootstrap":"libs/bootstrap.min",
-        "text":"libs/text"
+        "jquery":"js/libs/jquery-1.8.2.min",
+        "underscore":"js/libs/underscore-min",
+        "backbone":"js/libs/backbone-min",
+        "bootstrap":"js/libs/bootstrap.min",
+        // require.js text plugin
+        "text":"js/libs/text",
+        // paths for our code:
+        "router":"js/router",
+        "model":"js/model",
+        "view":"js/view",
+        "tpl":"tpl"
     },
-    // js libs not friendly with AMD specification
+    // 'shim' js libs not friendly with AMD specification
     shim:{
         underscore:{
             exports:"_"
@@ -23,4 +26,17 @@ require.config({
             exports:"Backbone"
         }
     }
-});
+})
+
+// this will bootstrap our application
+require([
+    "backbone", "router"
+], function (Backbone, Router) {
+
+    var app = new Router()
+    Backbone.history.start({
+        // routes without hashes
+        pushState:true
+    })
+})
+
