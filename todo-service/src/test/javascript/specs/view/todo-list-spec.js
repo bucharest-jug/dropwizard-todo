@@ -34,7 +34,7 @@ define([
                 expect(view.$(".todo-id").text()).toBe("Test")
                 expect(view.$(".todo-email").text()).toBe("john@example.com")
                 expect(view.$(".todo-created").text()).toBe("1348645333931")
-                expect(view.$(".todo-items").text()).toBe("1")
+                expect(view.$(".todo-items").text()).toBe("2")
                 expect(view.$(".todo-options").length).toBe(1)
             })
         })

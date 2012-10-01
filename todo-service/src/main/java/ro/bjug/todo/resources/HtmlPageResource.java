@@ -11,6 +11,10 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.net.URL;
 
+/**
+ * You can also serve index.html from the root path with AssetBundle instead of the service.
+ * Just change Dropwizard config.
+ */
 @Path("/")
 @Produces(MediaType.TEXT_HTML)
 public class HtmlPageResource {

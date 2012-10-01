@@ -7,6 +7,11 @@
             {
                 "title":"Item 1",
                 "created":1348645333931
+            },
+            {
+                "title":"Item 2",
+                "created":1348645333931,
+                "completed":1348645339999
             }
         ]
     }
