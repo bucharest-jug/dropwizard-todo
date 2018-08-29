@@ -45,7 +45,7 @@ Links
 
 * http://dropwizard.codahale.com/
 * http://twitter.github.com/bootstrap/
-* http://pivotal.github.com/jasmine/ 
+* https://jasmine.github.io/ 
 * https://github.com/searls/jasmine-maven-plugin
 * http://requirejs.org/
 
